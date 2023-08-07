@@ -1,0 +1,71 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:controls="clr-namespace:SensorUI.Views"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        Width="850" Height="480"
+        WindowStartupLocation="CenterOwner"
+        x:Class="SensorUI.Views.DeviceSettingsWindow"
+        Title="DeviceSettingsWindow">
+  <Panel>
+    <ExperimentalAcrylicBorder IsHitTestVisible="False">
+      <ExperimentalAcrylicBorder.Material>
+        <ExperimentalAcrylicMaterial
+            BackgroundSource="Digger"
+            TintColor="Black"
+            TintOpacity="1"
+            MaterialOpacity="0.65" />
+      </ExperimentalAcrylicBorder.Material>
+    </ExperimentalAcrylicBorder>
+    
+    <!--####################################-->
+    
+    <Panel Margin="40">
+      <Grid RowDefinitions="Auto, Auto, *, Auto">
+
+        <controls:DeviceView Grid.Row="0" DataContext="{Binding SelectedDevice}"/>
+
+        <!-- Контроллы -->
+
+        <StackPanel Grid.Row="1">
+          <StackPanel Orientation="Horizontal">
+            <StackPanel.Styles>
+              <Style Selector="CheckBox">
+                <Setter Property="Margin" Value="5 0"/>
+              </Style>
+              <Style Selector="Button">
+                <Setter Property="Margin" Value="5 0"/>
+              </Style>
+            </StackPanel.Styles>
+            <Label Content="Выполнить команду:" VerticalAlignment="Center"/>
+            <ComboBox SelectedIndex="{Binding CommandSelectedIndex}" MaxDropDownHeight="200" Width="160">
+              <ComboBoxItem>Перевод в ручной режим</ComboBoxItem>
+              <ComboBoxItem>Отключить</ComboBoxItem>
+              <ComboBoxItem>Перевод в автоматику</ComboBoxItem>
+              <ComboBoxItem>Перевод в тестовый режим</ComboBoxItem>
+              <ComboBoxItem>Сброс состояния</ComboBoxItem>
+              <ComboBoxItem>Включить реле</ComboBoxItem>
+              <ComboBoxItem>Отключить реле</ComboBoxItem>
+              <ComboBoxItem>Опрос состояния</ComboBoxItem>
+            </ComboBox>
+
+          </StackPanel>
+          <ProgressBar IsIndeterminate="True" IsVisible="{Binding IsBusy}" />
+        </StackPanel>
+
+        <controls:DeviceHistoryView Grid.Row="2" DataContext="{Binding DeviceHistory}"/>
+
+        <Button Grid.Row="3"
+                HorizontalAlignment="Center"
+                Margin="10"
+                Content="Close"
+                Command="{Binding CloseSettingsCommand}"/>
+        
+      </Grid>
+    </Panel>
+    
+    <!--####################################-->
+    
+  </Panel>
+</Window>

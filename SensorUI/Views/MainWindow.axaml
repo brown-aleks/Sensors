@@ -1,0 +1,88 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="using:SensorUI.ViewModels"
+        xmlns:views="clr-namespace:SensorUI.Views"
+        mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="750"
+        Width="1050" Height="500"
+        WindowStartupLocation="CenterScreen"
+        x:Class="SensorUI.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="SensorUI">
+  
+
+  <Panel Margin="1">
+    <ExperimentalAcrylicBorder IsHitTestVisible="False">
+      <ExperimentalAcrylicBorder.Material>
+        <ExperimentalAcrylicMaterial
+             BackgroundSource="Digger"
+             TintColor="Black"
+             TintOpacity="1"
+             MaterialOpacity="0.65" />
+      </ExperimentalAcrylicBorder.Material>
+    </ExperimentalAcrylicBorder>
+
+    <Panel Margin="40">
+
+      <Grid RowDefinitions="Auto, *, Auto">
+
+        <!-- Контроллы поиска и сортировки -->
+        
+        <StackPanel Grid.Row="0">
+          <StackPanel Orientation="Horizontal">
+            <StackPanel.Styles>
+              <Style Selector="CheckBox">
+                <Setter Property="Margin" Value="5 0"/>
+              </Style>
+              <Style Selector="Button">
+                <Setter Property="Margin" Value="5 0"/>
+              </Style>
+            </StackPanel.Styles>
+            <TextBox Text="{Binding SearchSerialNumber}" Width="300" Watermark="Search serial numbr device...." />
+            <Button Content="Get All" Command="{Binding GetAllCommand}"/>
+            <CheckBox IsChecked="{Binding Automatic}">Automatic</CheckBox>
+            <CheckBox IsChecked="{Binding Handle}">Handle</CheckBox>
+            <CheckBox IsChecked="{Binding Disabled}">Disabled</CheckBox>
+            <CheckBox IsChecked="{Binding None}">None</CheckBox>
+            <CheckBox IsChecked="{Binding Fire}">Fire</CheckBox>
+            <CheckBox IsChecked="{Binding Relay}">Relay</CheckBox>
+            <CheckBox IsChecked="{Binding Test}">Test</CheckBox>
+          </StackPanel>
+          <ProgressBar IsIndeterminate="True" IsVisible="{Binding IsBusy}" />
+        </StackPanel>
+
+        <!-- Список найденных устройств -->
+        
+        <ListBox Grid.Row="1"
+                 ItemsSource="{Binding SearchResults}"
+                 SelectedItem="{Binding SelectedDevice}"
+                 Margin="0 20">
+          <ListBox.Styles>
+            <Style Selector="ListBox">
+              <Setter Property="Margin" Value="2 2 2 2"/>
+            </Style>
+            <Style Selector="ListBoxItem">
+              <Setter Property="Padding" Value="2 2 2 2"/>
+            </Style>
+          </ListBox.Styles>
+        </ListBox>
+        
+        <!-- Нижняя панель -->
+          
+        <Button Grid.Row="2"
+                Content="DeviceSettings"
+                Command="{Binding DeviceSettingsCommand}"
+                Margin="10"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom"/>
+      </Grid>
+
+      <!--####################################-->
+    </Panel>
+    
+  </Panel>
+
+
+</Window>

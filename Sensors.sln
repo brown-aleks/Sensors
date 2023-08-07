@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.33920.267
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SensorUI", "SensorUI\SensorUI.csproj", "{3F7DBC18-FDD5-454B-BB88-6E4DE401EFBD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SensorDrive", "SensorDrive\SensorDrive.csproj", "{EA9858B7-6206-47AB-BC36-08677B7AFCE7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3F7DBC18-FDD5-454B-BB88-6E4DE401EFBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F7DBC18-FDD5-454B-BB88-6E4DE401EFBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F7DBC18-FDD5-454B-BB88-6E4DE401EFBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F7DBC18-FDD5-454B-BB88-6E4DE401EFBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA9858B7-6206-47AB-BC36-08677B7AFCE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA9858B7-6206-47AB-BC36-08677B7AFCE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA9858B7-6206-47AB-BC36-08677B7AFCE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA9858B7-6206-47AB-BC36-08677B7AFCE7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {809473CC-935B-4FE2-BA98-D61B80002D81}
+	EndGlobalSection
+EndGlobal
